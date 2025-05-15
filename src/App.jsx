@@ -20,7 +20,7 @@ import SubmissionScreen from "./components/SubmissionScreen";
 import GetStartedPage from "./components/GetStartedPage";
 import AccountConfirmation from "./components/AccountConfirmation";
 import Login from "./components/Login";
-import MorePage from "./Page/Morepage";
+import MorePage from "./Page/MorePage";
 import Logout from "./components/logout";
 
 const App = () => {
