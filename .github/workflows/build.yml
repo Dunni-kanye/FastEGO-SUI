@@ -1,0 +1,36 @@
+name: CI/CD for React
+
+on:
+  pull_request:
+    branches: ['main', 'dev', 'prod-support']
+
+  push:
+    branches: ['main', 'dev', 'prod-support']
+    
+
+ 
+jobs:
+  build-and-test:
+    name: Build and Test React App
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.16.0]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+
+    - name: Build the Next.js app
+      run: npm run build
